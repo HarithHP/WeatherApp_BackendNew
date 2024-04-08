@@ -1,6 +1,16 @@
 const express = require ('express');
 const { addDistrict,getAllDistricts,deleteDistrict} = require('../controllers/district.controller');
 const {verifyJWT} = require('../middleware/verifyJWT');
+const { nanoid } = require("nanoid");
+
+// To this:
+import("nanoid/non-secure").then(({ nanoid }) => {
+    // Now you can use nanoid here
+}).catch(error => {
+    // Handle any potential errors with the dynamic import
+    console.error("Error importing nanoid:", error);
+});
+
 const router=express.Router();
 
 //add district route
